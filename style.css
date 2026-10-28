@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+/* Custom styling for options and interactions */
+.choice-option {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.choice-option:hover {
+    border-color: #004595;
+    background-color: #f0f7ff;
+    transform: translateY(-1px);
+}
+
+.choice-option.selected {
+    border-color: #004595;
+    background-color: #ebf5ff;
+    box-shadow: 0 0 0 1px #004595;
+}
+
+/* Fade & slide animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Print optimizations */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .print-only {
+        display: block !important;
+    }
+
+    .wrap-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .hero-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        border-top: 6px solid #f15a24 !important;
+    }
+
+    .result-card {
+        display: block !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}

@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detector de Talentos | Mundo SENAI</title>
+    <!-- Tailwind CSS for modern utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              senai: {
+                blue: "#004595",
+                darkBlue: "#002f6c",
+                orange: "#f15a24",
+                lightBg: "#f8fafc",
+                border: "#e2e8f0",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="bg-slate-900 min-h-screen py-6 px-4 sm:px-6 lg:px-8 text-slate-800 antialiased"
+  >
+    <div class="wrap-container max-w-3xl mx-auto space-y-6">
+      <!-- Header / Hero Section -->
+      <header
+        class="hero-card bg-white rounded-2xl shadow-xl overflow-hidden border-t-8 border-senai-orange relative transition-all"
+      >
+        <div class="p-6 sm:p-8">
+          <div
+            class="flex flex-row items-center justify-between gap-3 sm:gap-4 mb-4"
+          >
+            <div class="min-w-0">
+              <span
+                class="eyebrow inline-block text-xs font-bold tracking-widest text-senai-orange uppercase bg-orange-50 px-3 py-1 rounded-full border border-orange-100"
+              >
+                Mundo SENAI · DETECTOR DE TALENTOS
+              </span>
+              <h1
+                class="text-3xl sm:text-4xl font-extrabold text-senai-blue mt-2 tracking-tight"
+              >
+                Detector de Talentos
+              </h1>
+            </div>
+            <!-- Logo Oficial SENAI (SVG Vetorial de alta precisão) -->
+
+            <div>
+              <img
+                class="w-28 sm:w-[200px] h-auto shrink-0"
+                src="https://upload.wikimedia.org/wikipedia/commons/0/05/SENAI_logo_2024.png?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original"
+                alt="Logo SENAI"
+                style="margin-top: 30px;"
+              />
+            </div>
+          </div>
+
+          <p class="text-slate-600 text-base leading-relaxed max-w-2xl">
+            Quatro perguntas simples para descobrir qual habilidade você quer
+            investigar primeiro. Responda com sinceridade — todas as habilidades
+            podem ser desenvolvidas!
+          </p>
+        </div>
+      </header>
+
+      <!-- Main Quiz Form Container -->
+      <main
+        class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 no-print transition-all"
+      >
+        <p
+          class="text-sm text-slate-500 mb-6 bg-slate-50 p-4 rounded-xl border border-slate-200/80"
+        >
+          <strong class="text-slate-700">Instruções:</strong> Escolha uma
+          alternativa em cada pergunta. Ao final, o sistema apontará uma estação
+          sugerida para você iniciar. Lembre-se: todos os participantes passarão
+          por todas as quatro estações!
+        </p>
+
+        <form id="quizForm" class="space-y-8" novalidate>
+          <!-- Questão 1: Comunicação -->
+          <fieldset class="border-b border-slate-200 pb-6">
+            <legend
+              class="text-lg font-bold text-senai-blue mb-2 flex items-center gap-2"
+            >
+              <span
+                class="w-7 h-7 rounded-full bg-blue-100 text-senai-blue flex items-center justify-center text-sm font-extrabold"
+                >1</span
+              >
+              Comunicação
+            </legend>
+            <p class="font-semibold text-slate-800 my-3 text-base">
+              Você recebe uma orientação no trabalho, mas não entendeu uma
+              parte. O que faria?
+            </p>
+            <div class="space-y-3 mt-3">
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="comunicacao"
+                  value="0"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >Começaria a tarefa tentando descobrir sozinho o que
+                  fazer.</span
+                >
+              </label>
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="comunicacao"
+                  value="2"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >Perguntaria o que não entendi e confirmaria se compreendi
+                  corretamente.</span
+                >
+              </label>
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="comunicacao"
+                  value="1"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >Esperaria alguém perceber que fiquei com dúvida.</span
+                >
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Questão 2: Trabalho em equipe -->
+          <fieldset class="border-b border-slate-200 pb-6">
+            <legend
+              class="text-lg font-bold text-senai-blue mb-2 flex items-center gap-2"
+            >
+              <span
+                class="w-7 h-7 rounded-full bg-blue-100 text-senai-blue flex items-center justify-center text-sm font-extrabold"
+                >2</span
+              >
+              Trabalho em Equipe
+            </legend>
+            <p class="font-semibold text-slate-800 my-3 text-base">
+              Seu grupo precisa concluir uma tarefa em pouco tempo. Como você
+              agiria?
+            </p>
+            <div class="space-y-3 mt-3">
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="equipe"
+                  value="2"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >Conversaria com o grupo para dividir as tarefas e combinar
+                  como trabalhar juntos.</span
+                >
+              </label>
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="equipe"
+                  value="0"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >Faria tudo sozinho para terminar logo.</span
+                >
+              </label>
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="equipe"
+                  value="1"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >Esperaria o grupo decidir tudo antes de participar.</span
+                >
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Questão 3: Planilhas eletrônicas -->
+          <fieldset class="border-b border-slate-200 pb-6">
+            <legend
+              class="text-lg font-bold text-senai-blue mb-2 flex items-center gap-2"
+            >
+              <span
+                class="w-7 h-7 rounded-full bg-blue-100 text-senai-blue flex items-center justify-center text-sm font-extrabold"
+                >3</span
+              >
+              Planilhas Eletrônicas
+            </legend>
+            <p class="font-semibold text-slate-800 my-3 text-base">
+              Em uma planilha de estoque, você precisa localizar a quantidade
+              disponível de um produto. O que faria?
+            </p>
+            <div class="space-y-3 mt-3">
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="planilhas"
+                  value="2"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >Localizaria o produto na linha correspondente e conferiria a
+                  quantidade na coluna certa.</span
+                >
+              </label>
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="planilhas"
+                  value="0"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >Alteraria os números até encontrar um resultado que parecesse
+                  correto.</span
+                >
+              </label>
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="planilhas"
+                  value="1"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >Procuraria apenas o título da planilha, sem conferir os
+                  dados.</span
+                >
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Questão 4: Matemática básica -->
+          <fieldset class="pb-2">
+            <legend
+              class="text-lg font-bold text-senai-blue mb-2 flex items-center gap-2"
+            >
+              <span
+                class="w-7 h-7 rounded-full bg-blue-100 text-senai-blue flex items-center justify-center text-sm font-extrabold"
+                >4</span
+              >
+              Matemática Básica
+            </legend>
+            <p class="font-semibold text-slate-800 my-3 text-base">
+              O estoque tinha 30 unidades. Foram retiradas 12 unidades e
+              chegaram mais 8. Quantas unidades há agora?
+            </p>
+            <div class="space-y-3 mt-3">
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="matematica"
+                  value="0"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >20 unidades.</span
+                >
+              </label>
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="matematica"
+                  value="2"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >26 unidades.</span
+                >
+              </label>
+              <label
+                class="choice-option flex items-start p-3.5 border border-slate-300 rounded-xl cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="matematica"
+                  value="0"
+                  class="mt-1 h-4 w-4 text-senai-blue focus:ring-senai-blue border-slate-300"
+                />
+                <span class="ml-3 text-sm text-slate-700 font-medium"
+                  >38 unidades.</span
+                >
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Mensagem de erro de validação -->
+          <div
+            id="errorBox"
+            class="hidden p-4 bg-red-50 border-l-4 border-red-500 rounded-r-xl text-red-700 text-sm font-medium animate-fade-in-up"
+            role="alert"
+          >
+            ⚠️ Por favor, responda a todas as 4 perguntas antes de prosseguir.
+          </div>
+
+          <!-- Botões de Ação -->
+          <div class="flex flex-col sm:flex-row gap-3 pt-4">
+            <button
+              type="submit"
+              class="w-full sm:w-auto px-6 py-3.5 bg-senai-orange hover:bg-orange-600 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-senai-orange text-center"
+            >
+              Descobrir meu ponto de partida
+            </button>
+            <button
+              type="reset"
+              id="resetBtn"
+              class="w-full sm:w-auto px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-senai-blue font-bold rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-300 text-center"
+            >
+              Limpar respostas
+            </button>
+          </div>
+        </form>
+      </main>
+
+      <!-- Result Section -->
+      <section
+        id="resultSection"
+        class="hidden bg-white rounded-2xl shadow-xl p-6 sm:p-8 animate-fade-in-up"
+        aria-live="polite"
+      >
+        <div class="border-b border-slate-200 pb-4 mb-4">
+          <h2 class="text-2xl font-extrabold text-senai-blue">
+            Seu ponto de partida
+          </h2>
+          <p id="resultIntro" class="text-slate-600 mt-2 text-base"></p>
+        </div>
+
+        <!-- Recommendation Box -->
+        <div id="recommendationBox" class="my-6"></div>
+
+        <p
+          class="text-xs text-slate-500 bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed mb-6"
+        >
+          <strong>Nota Informativa:</strong> Este teste é uma atividade de
+          reflexão pedagógica e de orientação profissional, não uma avaliação
+          psicológica ou definitiva de competência. O resultado sugere apenas
+          por onde começar: todos os participantes do circuito realizarão os
+          desafios de todas as quatro estações.
+        </p>
+
+        <!-- Result Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 no-print">
+          <button
+            onclick="window.print()"
+            class="w-full sm:w-auto px-6 py-3 bg-senai-orange hover:bg-orange-600 text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
+              ></path>
+            </svg>
+            Imprimir resultado
+          </button>
+          <button
+            onclick="resetAll()"
+            class="w-full sm:w-auto px-6 py-3 bg-slate-100 hover:bg-slate-200 text-senai-blue font-bold rounded-xl transition-all flex items-center justify-center gap-2"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              ></path>
+            </svg>
+            Refazer o teste
+          </button>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center text-xs text-slate-400 py-4 no-print">
+        Modelo de atividade para o Circuito Detector de Talentos · Mundo SENAI
+      </footer>
+    </div>
+
+    <script>
+      // Dynamic Station Info
+      const stationInfo = {
+        comunicacao: {
+          name: "SINAL DE TALENTO",
+          skill: "Comunicação",
+          detail:
+            "Pratique transmitir mensagens com clareza, ouvir ativamente e confirmar o entendimento das informações.",
+        },
+        equipe: {
+          name: "RADAR DA COOPERAÇÃO",
+          skill: "Trabalho em Equipe",
+          detail:
+            "Experimente colaborar, ouvir diferentes perspectivas e construir soluções em conjunto com o grupo.",
+        },
+        planilhas: {
+          name: "RASTREADOR DE DADOS",
+          skill: "Planilhas Eletrônicas",
+          detail:
+            "Investigue dados, tabelas, linhas e colunas para extrair e organizar informações estratégicas.",
+        },
+        matematica: {
+          name: "CÓDIGO DOS NÚMEROS",
+          skill: "Matemática Básica",
+          detail:
+            "Resolva problemas práticos, operações essenciais e raciocínio lógico aplicados ao cotidiano.",
+        },
+      };
+
+      const quizForm = document.getElementById("quizForm");
+      const errorBox = document.getElementById("errorBox");
+      const resultSection = document.getElementById("resultSection");
+      const resultIntro = document.getElementById("resultIntro");
+      const recommendationBox = document.getElementById("recommendationBox");
+
+      // Highlight option cards on selection
+      document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+        radio.addEventListener("change", (e) => {
+          // Clear sibling styling
+          const name = e.target.name;
+          document.querySelectorAll(`input[name="${name}"]`).forEach((r) => {
+            r.closest(".choice-option").classList.remove("selected");
+          });
+          // Add selected styling
+          e.target.closest(".choice-option").classList.add("selected");
+          errorBox.classList.add("hidden");
+        });
+      });
+
+      // Handle Form Submission
+      quizForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const categories = ["comunicacao", "equipe", "planilhas", "matematica"];
+        const answers = {};
+        let firstUnanswered = null;
+
+        // Validate if all questions are answered
+        for (const key of categories) {
+          const selected = document.querySelector(
+            `input[name="${key}"]:checked`,
+          );
+          if (!selected) {
+            if (!firstUnanswered) {
+              firstUnanswered = document.querySelector(`input[name="${key}"]`);
+            }
+          } else {
+            answers[key] = Number(selected.value);
+          }
+        }
+
+        if (firstUnanswered) {
+          errorBox.classList.remove("hidden");
+          firstUnanswered.focus();
+          return;
+        }
+
+        errorBox.classList.add("hidden");
+
+        // Calculate station with lowest score (area for growth/investigation)
+        const lowestScore = Math.min(...categories.map((k) => answers[k]));
+        const candidates = categories.filter((k) => answers[k] === lowestScore);
+        const primaryRecommendation = candidates[0];
+
+        // Render Results
+        resultIntro.textContent = `Obrigado por responder! Com base nas suas respostas, sua primeira estação recomendada é:`;
+
+        recommendationBox.innerHTML = "";
+
+        // Primary Recommendation Card
+        const stationCard = document.createElement("div");
+        stationCard.className =
+          "p-5 bg-gradient-to-r from-orange-50 to-amber-50 border-l-8 border-senai-orange rounded-xl shadow-sm mb-4";
+
+        const title = document.createElement("h3");
+        title.className =
+          "text-xl font-bold text-senai-blue flex items-center gap-2";
+        title.innerHTML = `📍 ${stationInfo[primaryRecommendation].name} <span class="text-xs font-semibold px-2 py-0.5 bg-orange-200 text-orange-900 rounded-full">${stationInfo[primaryRecommendation].skill}</span>`;
+
+        const detail = document.createElement("p");
+        detail.className =
+          "text-slate-700 text-sm mt-2 leading-relaxed font-medium";
+        detail.textContent = stationInfo[primaryRecommendation].detail;
+
+        stationCard.appendChild(title);
+        stationCard.appendChild(detail);
+        recommendationBox.appendChild(stationCard);
+
+        // Tie warning
+        if (candidates.length > 1) {
+          const tieNote = document.createElement("p");
+          tieNote.className =
+            "text-xs text-slate-500 italic bg-slate-100 p-3 rounded-lg border border-slate-200";
+          tieNote.textContent = `Nota: Houve empate no seu perfil entre duas ou mais áreas. Sugerimos começar por ${stationInfo[primaryRecommendation].name}, mas você explorará todas elas!`;
+          recommendationBox.appendChild(tieNote);
+        }
+
+        // Display result with animation
+        resultSection.classList.remove("hidden");
+        resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      // Reset helper
+      function resetAll() {
+        quizForm.reset();
+        document
+          .querySelectorAll(".choice-option")
+          .forEach((el) => el.classList.remove("selected"));
+        resultSection.classList.add("hidden");
+        errorBox.classList.add("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        document
+          .querySelectorAll(".choice-option")
+          .forEach((el) => el.classList.remove("selected"));
+        resultSection.classList.add("hidden");
+        errorBox.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>
